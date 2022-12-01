@@ -4,11 +4,17 @@ const express = require('express')
 //Create express app
 const app = express()
 
-const pokemon = []
+const pokemon = require('./models/pokemon.js')
+
+
+//Setup jsx view engine
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
 
 //Index route = SHOW ALL
 app.get('/pokemon/', (req, res) => {
-    res.send(pokemon)
+    res.render('Index', {pokemon: pokemon})
 })
 
 //New = GET A FORM TO CREATE A NEW RECORD
