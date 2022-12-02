@@ -17,6 +17,10 @@ app.get('/pokemon/', (req, res) => {
     res.render('Index', {pokemon: pokemon})
 })
 
+app.get('/pokemon/:id', (req, res) => {
+	res.render('Show', {pokemon: pokemon[req.params.id]})
+})
+
 //New = GET A FORM TO CREATE A NEW RECORD
 //Delete - DELETE
 //Update - MODIFYING A RECORD
@@ -31,6 +35,8 @@ const port = 3000
 app.get('/', (req, res) => {
     res.send('Welcome to the Pokemon App!')
 })
+
+
 
 app.listen(port, () => {
     console.log(`Listening to port ${port}` )
