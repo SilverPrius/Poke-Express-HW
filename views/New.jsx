@@ -5,12 +5,12 @@ class New extends React.Component {
       return (
           <div>
             <nav>
-                    <a href="/pokemon">Back</a>
+                    <a href="/pokemon">Home</a>
                 </nav>
               <h1>New Pokemon page</h1>
               <form action="/pokemon" method="POST">
                   Name: <input type="text" name="name" /><br/>
-                  Image: <input type="text" name="img" /><br/>
+                  {/* Image: <input type="text" name="img" /><br/> */}
                   <input type="submit" name="" value="Create Pokemon"/>
                </form>
           </div>);

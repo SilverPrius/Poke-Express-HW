@@ -1,14 +1,4 @@
-// const pokemon = [
-//     {name: "bulbasaur", img: "http://img.pokemondb.net/artwork/bulbasaur"},
-//     {name: "ivysaur", img: "http://img.pokemondb.net/artwork/ivysaur"},
-//     {name: "venusaur", img: "http://img.pokemondb.net/artwork/venusaur"},
-//     {name: "charmander", img: "http://img.pokemondb.net/artwork/charmander"},
-//     {name: "charizard", img: "http://img.pokemondb.net/artwork/charizard"},
-//     {name: "squirtle", img: "http://img.pokemondb.net/artwork/squirtle"},
-//     {name: "wartortle", img: "http://img.pokemondb.net/artwork/wartortle"}
-//  ];
-
- const mongoose = require("mongoose")
+const mongoose = require("mongoose")
  const Schema = mongoose.Schema
  const model = mongoose.model
 
@@ -22,7 +12,7 @@
 // An instance of a model is called a document.
 // Models are responsible for creating and reading documents from the underlying MongoDB Database
 // from here: https://mongoosejs.com/docs/models.html
- const Pokemon = mongoose.model("Pokemon", pokemonSchema);
+ const Pokemon = mongoose.model("Pokemon", pokemonSchema)
 
 
 //make this exportable to be accessed in `app.js`

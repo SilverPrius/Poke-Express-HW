@@ -24,15 +24,6 @@ db.on("error", (err) => console.log(err.message + " is mongod not running?"))
 db.on("open", () => console.log("mongo connected: ", mongoURI))
 db.on("close", () => console.log("mongo disconnected"))
 
-// const pokemonArray = [
-//     { name: "ivysaur", img: "http://img.pokemondb.net/artwork/ivysaur" },
-//     { name: "venusaur", img: "http://img.pokemondb.net/artwork/venusaur" },
-//     { name: "charmander", img: "http://img.pokemondb.net/artwork/charmander" },
-//     { name: "charizard", img: "http://img.pokemondb.net/artwork/charizard" },
-//     { name: "squirtle", img: "http://img.pokemondb.net/artwork/squirtle" },
-//     { name: "wartortle", img: "http://img.pokemondb.net/artwork/wartortle" }
-// ];
-
 //Set up middleware
 app.use((req, res, next) => {
     console.log('I run for all routes')
@@ -77,33 +68,13 @@ app.get('/pokemon/new', (req, res) => {
 
 //Create - SEND THE FILLED FORM TO DATABASE AND CREATE A NEW RECORD
 app.post('/pokemon', (req,res) => {
-    Pokemon.create(req.body, (error, createdPokemon) => {
+    let pokemonBody = req.body
+    pokemonBody.img = pokemonBody.name
+    Pokemon.create(pokemonBody, (error, createdPokemon) => {
         res.redirect('/pokemon')
     })
     
 })
-
-// Creating many pokemon
-// Pokemon.insertMany(pokemonArray)
-
-//     // if database transaction succeeds
-//     .then((pokemon) => {
-//         console.log(pokemon)
-//     })
-
-//     // if database transaction succeeds
-//     .then((pokemon) => {
-//         console.log(pokemon)
-//     })
-//     // if database transaction fails
-//     .catch((error) => {
-//         console.log(error)
-//     })
-//     // close db connection either way
-//     .finally(() => {
-//         db.close()
-//     })
-
 
 //Edit - GO TO DATABASE AND GET THE RECORD TO UPDATE
 
