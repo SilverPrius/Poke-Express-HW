@@ -1,14 +1,15 @@
 const React = require('react')
+const DefaultLayout = require('./Default')
 
 const myStyle = {
     color: 'yellow',
     backgroundColor: 'blue',
-};
+}
 
 
 class MyFirstComponent extends React.Component {
     render() {
-        const { pokemon } = this.props;
+        const { pokemon } = this.props
         return (
             <div>
                 <nav>
@@ -21,14 +22,20 @@ class MyFirstComponent extends React.Component {
                             <li>
                                 <a href={`/pokemon/${pokemon.id}`}>
                                     {pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}
-                                </a>
+                                </a><br />
+                                <button><a href={`/pokemon/${pokemon._id}/edit`}>EDIT</a></button>
+
+                                <form action={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
+                                    <input type="submit" value="DELETE" />
+                                </form>
                                 <br />
+
                             </li>
-                        );
+                        )
                     })}
                 </ul>
             </div>
-        );
+        )
     }
 }
 
